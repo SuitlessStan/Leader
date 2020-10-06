@@ -1,22 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
-
-class Splash extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text(
-          "Hello",
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 100,
-          ),
-        ),
-      ),
-    );
-  }
-}
+import 'send_texts.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -59,7 +43,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Container(),
+                          builder: (context) => SendText(),
                         ),
                       ),
                       child: Container(
@@ -115,7 +99,9 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Container(),
+                          builder: (context) => Container(
+                            color: Colors.white,
+                          ),
                         ),
                       ),
                       child: Container(
