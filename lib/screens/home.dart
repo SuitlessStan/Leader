@@ -71,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                             width: 24,
                           ),
                           Container(
-                            // Send message text
+                            // Send message text container
                             height: 58,
                             width: 46,
                             child: Text(
@@ -140,25 +140,101 @@ class _HomePageState extends State<HomePage> {
                 Row(
                   children: [
                     Container(
+                      //Send text Container
                       width: 180,
                       height: 110,
                       decoration: BoxDecoration(
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           width: 2,
                           color: borderColor,
                         ),
                       ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            height: 10,
+                            width: 10,
+                          ),
+                          Container(
+                            //pay bills image
+                            height: 72,
+                            width: 72,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage('assets/images/payBills.png'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 24,
+                            width: 16,
+                          ),
+                          Container(
+                            // pay bills text container
+                            height: 58,
+                            width: 64,
+                            child: Text(
+                              'تسديد فواتير',
+                              style: TextStyle(
+                                color: borderColor,
+                                fontFamily: 'Calibri',
+                                fontSize: 20,
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                     Container(
+                      //Balance requests
                       width: 180,
                       height: 110,
                       decoration: BoxDecoration(
+                        color: Colors.white,
                         borderRadius: BorderRadius.circular(5),
                         border: Border.all(
                           width: 2,
                           color: borderColor,
                         ),
+                      ),
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            height: 24,
+                            width: 18,
+                          ),
+                          Container(
+                            // Send message text
+                            height: 58,
+                            width: 73,
+                            child: Text(
+                              'طلبات الرصيد',
+                              style: TextStyle(
+                                color: borderColor,
+                                fontFamily: 'Calibri',
+                                fontSize: 20,
+                              ),
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                            width: 11,
+                          ),
+                          Container(
+                            //Send text image
+                            height: 71,
+                            width: 68,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage(
+                                      'assets/images/balanceRequests.png'),
+                                  fit: BoxFit.fill),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ],
