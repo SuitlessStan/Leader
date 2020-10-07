@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
+import '../custom_widgets/custom_widgets.dart';
 
 class SendText extends StatefulWidget {
   @override
@@ -31,76 +32,40 @@ class _SendTextState extends State<SendText> {
               ),
             ),
           ),
+          ContactNamesList(contacts: contacts),
           Container(
-            //Contacts list
-            //to be filled later
-            child: Container(
-              child: ListView.builder(
-                  itemCount: contacts.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      width: 50,
-                      height: 80,
-                      child: Column(children: [
-                        Container(
-                          height: 50,
-                          width: 50,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              //This is where you place the contact image
-                              image: AssetImage(contacts.elementAt(index)),
-                              fit: BoxFit.fill,
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 8,
-                        ),
-                        Container(
-                          height: 14,
-                          width: 40,
-                          child: Text(
-                            //This is where you place the contact name
-                            contacts.elementAt(index),
-                            style: TextStyle(
-                              fontFamily: 'Calibri',
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        )
-                      ]),
-                    );
-                  }),
+            // color: Colors.blue,
+            //Two textfields container
+            height: 371,
+            width: 378,
+            padding: EdgeInsets.only(
+              right: 18,
+              left: 18,
+              top: 16,
+              bottom: 15,
             ),
-            height: 89,
-            width: 477,
-            color: Colors.grey,
-          ),
-          SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Container(
-              // color: Colors.blue,
-              //Two textfields container
-              height: 371,
-              width: 378,
-              padding: EdgeInsets.only(
-                right: 18,
-                left: 18,
-                top: 16,
-                bottom: 15,
-              ),
-              child: Form(
-                child: Column(
-                  children: [
-                    DefaultTextFormField(),
-                    SizedBox(
-                      height: 24,
-                    ),
-                    DefaultTextFormField()
-                  ],
-                ),
+            child: Form(
+              child: Column(
+                children: [
+                  //Reciever textfield
+                  DefaultTextFormField(
+                    labelText: 'المستقبل',
+                    fontFamily: 'Calibri',
+                    textFieldBorderColor: Colors.grey,
+                    fontSize: 16,
+                  ),
+                  SizedBox(
+                    height: 24,
+                  ),
+                  DefaultTextFormField(
+                    labelText: 'الرسالة النصية',
+                    maxLines: null,
+                    minLines: 2,
+                    fontFamily: 'Calibri',
+                    fontSize: 16,
+                    textFieldBorderColor: Colors.grey,
+                  )
+                ],
               ),
             ),
           ),
@@ -141,46 +106,66 @@ class _SendTextState extends State<SendText> {
   }
 }
 
-class DefaultTextFormField extends StatelessWidget {
-  const DefaultTextFormField({
+class ContactNamesList extends StatelessWidget {
+  const ContactNamesList({
     Key key,
-    this.labelText,
-    this.fontFamily,
-    this.textFieldBorderColor,
-    this.maxLines,
-    this.minLines,
+    @required this.contacts,
+    this.position,
+    this.url,
   }) : super(key: key);
-  final String labelText;
-  final String fontFamily;
-  final Color textFieldBorderColor;
-  final int maxLines;
-  final int minLines;
 
+  final List contacts;
+  final int position;
+  final String url;
   @override
   Widget build(BuildContext context) {
-    return TextFormField(
-      maxLines: maxLines,
-      minLines: minLines,
-      decoration: InputDecoration(
-        labelText: labelText,
-        labelStyle: TextStyle(
-          fontFamily: fontFamily,
-          fontSize: 16,
-          color: textFields,
-        ),
-        focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(5),
-            borderSide: BorderSide(
-              color: textFieldBorderColor,
-            )),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(5),
-          borderSide: BorderSide(
-            color: textFieldBorderColor,
-            width: 1,
-          ),
-        ),
+    return Container(
+      //Contacts list
+      //to be filled later
+      child: Container(
+        child: ListView.builder(
+            itemCount: contacts.length,
+            itemBuilder: (context, index) {
+              return Container(
+                //Outer container that contains contact picture and name
+                width: 50,
+                height: 80,
+                child: Column(children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                        //This is where you place the contact image
+                        image: AssetImage(url),
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Container(
+                    height: 14,
+                    width: 40,
+                    child: Text(
+                      //This is where you place the contact name
+                      contacts.elementAt(position),
+                      style: TextStyle(
+                        fontFamily: 'Calibri',
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  )
+                ]),
+              );
+            }),
       ),
+      height: 89,
+      width: 477,
+      // color: Colors.grey,
     );
   }
 }

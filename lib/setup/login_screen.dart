@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constans/constants.dart';
 import 'package:flutter/services.dart';
 import '../screens/home.dart';
+import '../custom_widgets/custom_widgets.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key key}) : super(key: key);
@@ -66,91 +67,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 Form(
                   child: Column(children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colors.grey,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(5),
-                        ),
-                      ),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                            color: Colors.grey,
-                          ),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(5),
-                          ),
-                        ),
-                        child: TextFormField(
-                          decoration: InputDecoration(
-                            //Label Properties
-                            labelText: "اسم المستخدم",
-                            labelStyle: TextStyle(
-                              color: borderTextfieldColor,
-                              fontSize: 24,
-                              fontFamily: 'Calibri',
-                              fontWeight: FontWeight.w400,
-                            ),
-                            // HintText Properties
-                            // hintText: "إسم المستخدم",
-                            // hintStyle: TextStyle(
-                            //   color: Colors.grey,
-                            //   fontSize: 24,
-                            //   fontFamily: 'Calibri',
-                            //   fontWeight: FontWeight.w400,
-                            // ),
-                          ),
-                          inputFormatters: [
-                            LengthLimitingTextInputFormatter(42),
-                          ],
-                        ),
-                      ),
+                    DefaultTextFormField(
+                      labelText: 'إسم المستخدم',
+                      fontFamily: 'Calibri',
+                      fontSize: 24,
+                      textFieldBorderColor: Colors.grey,
+                      color: textColor,
                     ),
                     SizedBox(
                       height: 24,
                     ),
-                    Container(
-                      decoration: BoxDecoration(
-                        border: Border.all(
-                          color: borderTextfieldColor,
-                        ),
-                        borderRadius: BorderRadius.all(
-                          Radius.circular(5),
-                        ),
-                      ),
-                      child: TextFormField(
-                        decoration: InputDecoration(
-                          // Label Properties
-                          labelText: "كلمة المرور",
-                          labelStyle: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 24,
-                            fontFamily: 'Calibri',
-                            fontWeight: FontWeight.w400,
-                          ),
-                          // //HintText Properties
-                          // hintText: "كلمة المرور",
-                          // hintStyle: TextStyle(
-                          //   color: Colors.grey,
-                          //   fontSize: 24,
-                          //   fontFamily: 'Calibri',
-                          //   fontWeight: FontWeight.w400,
-                          // ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: Colors.white,
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        inputFormatters: [
-                          LengthLimitingTextInputFormatter(42),
-                        ],
-                      ),
+                    DefaultTextFormField(
+                      labelText: 'كلمة المرور',
+                      fontFamily: 'Calibri',
+                      fontSize: 24,
+                      textFieldBorderColor: Colors.grey,
+                      color: textColor,
                     ),
                     SizedBox(
                       height: 84,

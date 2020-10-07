@@ -11,6 +11,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //     title: Text(
+      //   'ليدر',
+      //   style: TextStyle(
+      //     color: Colors.grey,
+      //     fontFamily: 'Calibri',
+      //     fontSize: 24,
+      //   ),
+      // )),
       body: Column(
         children: [
           SizedBox(
@@ -82,14 +91,7 @@ class _HomePageState extends State<HomePage> {
                               // Send message text container
                               height: 58,
                               width: 46,
-                              child: Text(
-                                'إرسال رسالة',
-                                style: TextStyle(
-                                  color: leaderLogo,
-                                  fontFamily: 'Calibri',
-                                  fontSize: 20,
-                                ),
-                              ),
+                              child: CustomText(),
                             )
                           ],
                         ),
@@ -278,6 +280,24 @@ class _HomePageState extends State<HomePage> {
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class CustomText extends StatelessWidget {
+  const CustomText({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'إرسال رسالة',
+      style: TextStyle(
+        color: leaderLogo,
+        fontFamily: 'Calibri',
+        fontSize: 20,
       ),
     );
   }
