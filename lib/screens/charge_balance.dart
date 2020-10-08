@@ -1,0 +1,194 @@
+import 'package:Leader/custom_widgets/custom_widgets.dart';
+import 'package:flutter/material.dart';
+import '../constans/constants.dart';
+
+class ChargeBalance extends StatefulWidget {
+  @override
+  _ChargeBalanceState createState() => _ChargeBalanceState();
+}
+
+class _ChargeBalanceState extends State<ChargeBalance> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(75),
+        child: Stack(
+          children: [
+            AppBar(
+              elevation: 0,
+              centerTitle: true,
+              backgroundColor: Colors.white,
+            ),
+            Positioned(
+              top: 64,
+              right: 130,
+              child: Text(
+                'شحن رصيد',
+                style: TextStyle(
+                  color: leaderLogo,
+                  fontSize: 24,
+                  fontFamily: 'Calibri',
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+              //Contact names list
+              height: 50,
+              width: 477,
+            ),
+            SizedBox(
+              height: 56,
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                right: 18,
+                left: 18,
+                bottom: 159.5,
+                top: 56,
+              ),
+              child: Form(
+                child: Column(
+                  children: [
+                    PhoneNumberTextField(),
+                    Container(
+                      width: 378,
+                      height: 241,
+                      child: Column(
+                        children: [
+                          BalanceTextField(),
+                          BottomText(),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BottomText extends StatelessWidget {
+  const BottomText({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: thinLine,
+        ),
+        shape: BoxShape.circle,
+      ),
+      width: 370,
+      height: 40,
+      child: Center(
+        child: Row(
+          children: [
+            Text(
+              ': الرصيد المتبقي',
+              textDirection: TextDirection.ltr,
+              style: TextStyle(
+                fontFamily: 'Calibri',
+                fontSize: 14,
+                color: phoneNummberColor,
+              ),
+            ),
+            Text(
+              ' 323 ',
+              style: TextStyle(
+                fontSize: 14,
+                color: Colors.green,
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BalanceTextField extends StatelessWidget {
+  const BalanceTextField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      textDirection: TextDirection.ltr,
+      keyboardType: TextInputType.number,
+      decoration: InputDecoration(
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+          ),
+        ),
+        hintText: '0',
+        hintStyle: TextStyle(
+          fontFamily: 'Bookman Old Style',
+          fontSize: 84,
+          color: phoneNummberColor,
+        ),
+      ),
+    );
+  }
+}
+
+class PhoneNumberTextField extends StatelessWidget {
+  const PhoneNumberTextField({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      keyboardType: TextInputType.number,
+      textDirection: TextDirection.ltr,
+      decoration: InputDecoration(
+        hintText: '059 - xxx- xxx- xxx',
+        hintStyle: TextStyle(
+          fontFamily: 'Calibri',
+          fontSize: 28,
+          color: Colors.grey,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(5),
+          borderSide: BorderSide(
+            color: Colors.grey,
+            width: 1,
+          ),
+        ),
+      ),
+    );
+  }
+}

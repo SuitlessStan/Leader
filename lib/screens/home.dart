@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
 import 'send_texts.dart';
+import 'charge_balance.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -101,9 +102,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Container(
-                            color: Colors.white,
-                          ),
+                          builder: (context) => ChargeBalance(),
                         ),
                       ),
                       child: Container(

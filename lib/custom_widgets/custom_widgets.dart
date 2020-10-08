@@ -85,3 +85,36 @@ class DefaultTextFormField extends StatelessWidget {
     );
   }
 }
+
+class CenterText extends StatelessWidget {
+  const CenterText({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      title: Stack(
+        children: [
+          Container(
+            height: 104,
+            width: 414,
+          ),
+          Positioned(
+            top: 30,
+            right: 160,
+            left: 160,
+            bottom: 30,
+            child: Text(
+              'شحن الرصيد',
+              style: TextStyle(
+                fontFamily: 'Calibri',
+                fontSize: 24,
+                color: Colors.black,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
