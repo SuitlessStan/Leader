@@ -1,6 +1,7 @@
 import 'package:Leader/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
+import 'send_texts.dart';
 
 class ChargeBalance extends StatefulWidget {
   @override
@@ -12,38 +13,23 @@ class _ChargeBalanceState extends State<ChargeBalance> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(75),
-        child: Stack(
-          children: [
-            AppBar(
-              elevation: 0,
-              centerTitle: true,
-              backgroundColor: Colors.white,
-            ),
-            Positioned(
-              top: 64,
-              right: 130,
-              child: Text(
-                'شحن رصيد',
-                style: TextStyle(
-                  color: leaderLogo,
-                  fontSize: 24,
-                  fontFamily: 'Calibri',
-                ),
-              ),
-            )
-          ],
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'شحن رصيد',
+          style: TextStyle(
+            color: leaderLogo,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+          ),
         ),
       ),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              //Contact names list
-              height: 50,
-              width: 477,
-            ),
+            ContactNamesList(),
             SizedBox(
               height: 56,
             ),
@@ -71,8 +57,61 @@ class _ChargeBalanceState extends State<ChargeBalance> {
                   ],
                 ),
               ),
-            )
+            ),
+            SendButton(),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class ContactNamesList extends StatelessWidget {
+  const ContactNamesList({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    List<String> contactNames = [
+      'آية محمد',
+      'محمد عودة',
+    ];
+    List<String> contactProfilePictures = [
+      'assets/images/Aya_Mohammad.png',
+      'assets/images/Mohammad_Ouda.png',
+    ];
+    return Container(
+      //Contact names list
+      height: 50,
+      width: 477,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: ListView.builder(
+          itemExtent: 30,
+          itemBuilder: (context, index) {
+            return Container(
+              height: 40,
+              width: 40,
+              child: Container(
+                child: Column(
+                  children: [
+                    Container(
+                      height: 30,
+                      width: 30,
+                      child:
+                          Image.asset(contactProfilePictures.elementAt(index)),
+                    ),
+                    Container(
+                      height: 10,
+                      width: 50,
+                      child: Text(contactNames.elementAt(index)),
+                    )
+                  ],
+                ),
+              ),
+            );
+          },
         ),
       ),
     );
