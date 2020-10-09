@@ -29,7 +29,7 @@ class _ChargeBalanceState extends State<ChargeBalance> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ContactNamesList(),
+            ContactsNamesList(),
             SizedBox(
               height: 56,
             ),
@@ -66,57 +66,55 @@ class _ChargeBalanceState extends State<ChargeBalance> {
   }
 }
 
-class ContactNamesList extends StatelessWidget {
-  const ContactNamesList({
-    Key key,
-  }) : super(key: key);
+// class ContactNamesList extends StatelessWidget {
+//   const ContactNamesList({
+//     Key key,
+//     this.contactNames,
+//     this.contactProfilePictures,
+//   }) : super(key: key);
+//   final List<String> contactNames;
+//   final List<String> contactProfilePictures;
 
-  @override
-  Widget build(BuildContext context) {
-    List<String> contactNames = [
-      'آية محمد',
-      'محمد عودة',
-    ];
-    List<String> contactProfilePictures = [
-      'assets/images/Aya_Mohammad.png',
-      'assets/images/Mohammad_Ouda.png',
-    ];
-    return Container(
-      //Contact names list
-      height: 50,
-      width: 477,
-      child: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: ListView.builder(
-          itemExtent: 30,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 40,
-              width: 40,
-              child: Container(
-                child: Column(
-                  children: [
-                    Container(
-                      height: 30,
-                      width: 30,
-                      child:
-                          Image.asset(contactProfilePictures.elementAt(index)),
-                    ),
-                    Container(
-                      height: 10,
-                      width: 50,
-                      child: Text(contactNames.elementAt(index)),
-                    )
-                  ],
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       //Contact names list
+//       height: 50,
+//       width: 477,
+//       child: SingleChildScrollView(
+//         scrollDirection: Axis.horizontal,
+//         child: ListView.builder(
+//           shrinkWrap: true,
+//           itemExtent: 30,
+//           itemCount: contactNames.length,
+//           itemBuilder: (context, index) {
+//             return Container(
+//               height: 40,
+//               width: 40,
+//               child: Container(
+//                 child: Column(
+//                   children: [
+//                     Container(
+//                       height: 30,
+//                       width: 30,
+//                       child:
+//                           Image.asset(contactProfilePictures.elementAt(index)),
+//                     ),
+//                     Container(
+//                       height: 10,
+//                       width: 50,
+//                       child: Text(contactNames.elementAt(index)),
+//                     )
+//                   ],
+//                 ),
+//               ),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 class BottomText extends StatelessWidget {
   const BottomText({
@@ -227,6 +225,63 @@ class PhoneNumberTextField extends StatelessWidget {
             width: 1,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Contact extends StatelessWidget {
+  final String contactName;
+  final String contactProfilePicture;
+
+  Contact({Key key, this.contactName, this.contactProfilePicture})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        CircleAvatar(
+          radius: 30,
+          backgroundImage: AssetImage(contactProfilePicture),
+          backgroundColor: Colors.white,
+        ),
+        Center(child: Text(contactName)),
+      ],
+    );
+  }
+}
+
+class ContactsNamesList extends StatelessWidget {
+  final List<Contact> contact = [
+    Contact(
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
+    ),
+    Contact(
+      contactName: 'محمد عودة',
+      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      height: 89,
+      width: 477,
+      child: ListView.builder(
+        shrinkWrap: true,
+        itemCount: contact.length,
+        scrollDirection: Axis.horizontal,
+        itemBuilder: (context, index) {
+          return Contact(
+            contactName: contact.elementAt(index).contactName,
+            contactProfilePicture:
+                contact.elementAt(index).contactProfilePicture,
+          );
+        },
       ),
     );
   }

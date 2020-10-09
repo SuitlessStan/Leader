@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
 import '../custom_widgets/custom_widgets.dart';
+import 'charge_balance.dart';
 
 class SendText extends StatefulWidget {
   @override
@@ -12,27 +13,41 @@ class _SendTextState extends State<SendText> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'إرسال رسالة',
+          style: TextStyle(
+            color: leaderLogo,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+          ),
+        ),
+      ),
       body: Column(
         children: [
-          SizedBox(
-            height: 42,
-          ),
-          Container(
-            //Send text top text
-            height: 97,
-            width: 414,
-            child: Center(
-              child: Text(
-                'إرسال رسالة',
-                style: TextStyle(
-                  fontFamily: 'Calibri',
-                  fontSize: 24,
-                  color: leaderLogo,
-                ),
-              ),
-            ),
-          ),
-          ContactNamesList(contacts: contacts),
+          // SizedBox(
+          //   height: 42,
+          // ),
+          // Container(
+          //   //Send text top text
+          //   height: 97,
+          //   width: 414,
+          //   child: Center(
+          //     child: Text(
+          //       'إرسال رسالة',
+          //       style: TextStyle(
+          //         fontFamily: 'Calibri',
+          //         fontSize: 24,
+          //         color: leaderLogo,
+          //       ),
+          //     ),
+          //   ),
+          // ),
+          ContactsNamesList(),
           Container(
             // color: Colors.blue,
             //Two textfields container
@@ -70,37 +85,48 @@ class _SendTextState extends State<SendText> {
             ),
           ),
           // SizedBox(height: 15,)
-          Container(
-            width: 378,
-            height: 60,
-            margin: EdgeInsets.only(
-              right: 18,
-              left: 18,
-            ),
-            child: ButtonTheme(
-              //Send message button
-              minWidth: 378,
-              height: 60,
-              child: RaisedButton(
-                onPressed: () {},
-                color: raisedButtonColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                child: Center(
-                  child: Text(
-                    'إرسال',
-                    style: TextStyle(
-                      fontFamily: 'Calibri',
-                      fontSize: 24,
-                      color: Colors.white,
-                    ),
-                  ),
-                ),
+          SendButton()
+        ],
+      ),
+    );
+  }
+}
+
+class SendButton extends StatelessWidget {
+  const SendButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 378,
+      height: 60,
+      margin: EdgeInsets.only(
+        right: 18,
+        left: 18,
+      ),
+      child: ButtonTheme(
+        //Send message button
+        minWidth: 378,
+        height: 60,
+        child: RaisedButton(
+          onPressed: () {},
+          color: raisedButtonColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Center(
+            child: Text(
+              'إرسال',
+              style: TextStyle(
+                fontFamily: 'Calibri',
+                fontSize: 24,
+                color: Colors.white,
               ),
             ),
-          )
-        ],
+          ),
+        ),
       ),
     );
   }

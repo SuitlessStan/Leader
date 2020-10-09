@@ -12,39 +12,48 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //     title: Text(
-      //   'ليدر',
-      //   style: TextStyle(
-      //     color: Colors.grey,
-      //     fontFamily: 'Calibri',
-      //     fontSize: 24,
-      //   ),
-      // )),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'ليدر',
+          style: TextStyle(
+            color: leaderLogo,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+          ),
+        ),
+      ),
       body: Column(
         children: [
-          SizedBox(
-            height: 42,
-          ),
-          Container(
-            //Leader top center text
-            height: 97,
-            width: 414,
-            child: Center(
-              child: Text(
-                "ليدر",
-                style: TextStyle(
-                  color: leaderLogo,
-                  fontFamily: 'Calibri',
-                  fontSize: 24,
-                ),
-              ),
-            ),
-          ),
+          // SizedBox(
+          //   height: 42,
+          // ),
+          // Container(
+          //   //Leader top center text
+          //   height: 97,
+          //   width: 414,
+          //   child: Center(
+          //     child: Text(
+          //       "ليدر",
+          //       style: TextStyle(
+          //         color: leaderLogo,
+          //         fontFamily: 'Calibri',
+          //         fontSize: 24,
+          //       ),
+          //     ),
+          //   ),
+          // ),
           SizedBox(height: 14),
           Container(
             height: 242,
             width: 378,
+            margin: EdgeInsets.only(
+              top: 70,
+              bottom: 338,
+            ),
             child: Column(
               children: [
                 Row(
