@@ -1,7 +1,7 @@
 import 'package:Leader/custom_widgets/custom_widgets.dart';
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
-import 'send_texts.dart';
+import 'send_texts/send_texts.dart';
 
 class ChargeBalance extends StatefulWidget {
   @override
@@ -255,6 +255,38 @@ class Contact extends StatelessWidget {
 
 class ContactsNamesList extends StatelessWidget {
   final List<Contact> contact = [
+    Contact(
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
+    ),
+    Contact(
+      contactName: 'محمد عودة',
+      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+    ),
+    Contact(
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
+    ),
+    Contact(
+      contactName: 'محمد عودة',
+      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+    ),
+    Contact(
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
+    ),
+    Contact(
+      contactName: 'محمد عودة',
+      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+    ),
+    Contact(
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
+    ),
+    Contact(
+      contactName: 'محمد عودة',
+      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+    ),
     Contact(
       contactName: 'آية محمد',
       contactProfilePicture: 'assets/images/Aya_Mohammad.png',

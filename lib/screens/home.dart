@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constans/constants.dart';
-import 'send_texts.dart';
+import 'send_texts/send_texts.dart';
 import 'charge_balance.dart';
+import 'paybills/pay_bills.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -172,7 +173,7 @@ class _HomePageState extends State<HomePage> {
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Container(),
+                          builder: (context) => PayBills(),
                         ),
                       ),
                       child: Container(

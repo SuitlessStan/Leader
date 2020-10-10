@@ -11,5 +11,6 @@ Color textColor = const Color(0xFF8B8B8B);
 Color phoneNummberColor = const Color(0xFF4A4A4A);
 Color textFieldBorder = const Color(0xFFDEDEDE);
 Color thinLine = const Color(0xFFDEDEDE);
+Color contactsName = const Color(0xFF373737);
 
 // Class variables

@@ -86,37 +86,48 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(
                     height: 70,
                   ),
-                  ButtonTheme(
-                    minWidth: 380,
-                    height: 63,
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomePage()),
-                        );
-                      },
-                      color: raisedButtonColor,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Center(
-                        child: Text(
-                            //Login button text properties
-                            'تسجيل دخول',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 24,
-                              fontFamily: 'Calibri',
-                              fontWeight: FontWeight.w400,
-                            )),
-                      ),
-                    ),
-                  ),
+                  CustomRaisedButton(),
                 ]),
               ),
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomRaisedButton extends StatelessWidget {
+  const CustomRaisedButton({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return ButtonTheme(
+      minWidth: 380,
+      height: 63,
+      child: RaisedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => HomePage()),
+          );
+        },
+        color: raisedButtonColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        child: Center(
+          child: Text(
+              //Login button text properties
+              'تسجيل دخول',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+                fontFamily: 'Calibri',
+                fontWeight: FontWeight.w400,
+              )),
         ),
       ),
     );

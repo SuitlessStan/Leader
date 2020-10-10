@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../constans/constants.dart';
-import '../custom_widgets/custom_widgets.dart';
-import 'charge_balance.dart';
+import '../../constans/constants.dart';
+import '../../custom_widgets/custom_widgets.dart';
+import '../charge_balance.dart';
+import 'send_texts_contacts.dart';
 
 class SendText extends StatefulWidget {
   @override
@@ -47,7 +48,17 @@ class _SendTextState extends State<SendText> {
           //     ),
           //   ),
           // ),
-          ContactsNamesList(),
+
+          GestureDetector(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ContactNames(),
+              ),
+            ),
+            child: ContactsNamesList(),
+          ),
+
           Container(
             // color: Colors.blue,
             //Two textfields container
@@ -192,6 +203,59 @@ class ContactNamesList extends StatelessWidget {
       height: 89,
       width: 477,
       // color: Colors.grey,
+    );
+  }
+}
+
+class ContactNames extends StatefulWidget {
+  @override
+  _ContactNamesState createState() => _ContactNamesState();
+}
+
+class _ContactNamesState extends State<ContactNames> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        elevation: 0,
+        title: Text(
+          'رسالة نصية',
+          style: TextStyle(
+            color: leaderLogo,
+            fontSize: 24,
+            fontFamily: 'Calibri',
+          ),
+        ),
+      ),
+      body: Column(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          ContactsNamesList(),
+          Container(
+            // padding: EdgeInsets.all(15),
+            margin: EdgeInsets.only(
+              right: 5,
+              left: 5,
+            ),
+            height: 545,
+            width: 413,
+            child: ColumnContactNamesList(),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              border: Border.all(
+                color: Colors.grey,
+              ),
+              borderRadius: BorderRadius.circular(10),
+              // shape: BoxShape.circle,
+            ),
+          )
+        ],
+      ),
     );
   }
 }
