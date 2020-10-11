@@ -26,62 +26,51 @@ class _PayBillsState extends State<PayBills>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
         backgroundColor: Colors.white,
-        centerTitle: true,
-        elevation: 0,
-        title: Text(
-          'تسديد فاتورة',
-          style: TextStyle(
-            color: leaderLogo,
-            fontSize: 24,
-            fontFamily: 'Calibri',
-          ),
-        ),
-      ),
-      body: Container(
-        child: Column(children: [
-          Container(
-            height: 93,
-            width: 378,
-            child: Align(
-              alignment: Alignment.topCenter,
-              child: TabBar(
-                controller: _controller,
-                tabs: [
-                  Tab(
-                    child: Center(
-                      child: Text(
-                        'فواتير مستحقة',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Tab(
-                    child: Center(
-                      child: Text(
-                        'فواتير مدفوعة',
-                        style: TextStyle(
-                          color: Colors.black,
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          centerTitle: true,
+          elevation: 0,
+          title: Text(
+            'تسديد فاتورة',
+            style: TextStyle(
+              color: leaderLogo,
+              fontSize: 24,
+              fontFamily: 'Calibri',
             ),
           ),
-          TabBarView(
+          bottom: TabBar(
             controller: _controller,
-            children: [
-              PayBillsList(),
-              SecondTab(),
+            tabs: [
+              Tab(
+                child: Text(
+                  'فواتير مستحقة',
+                  style: TextStyle(
+                    fontFamily: 'Calibri',
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              Tab(
+                child: Text(
+                  'فواتير مدفوعة',
+                  style: TextStyle(
+                    fontFamily: 'Calibri',
+                    fontSize: 14,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
             ],
           ),
-        ]),
-      ),
-    );
+        ),
+        body: TabBarView(
+          controller: _controller,
+          children: [
+            PayBillsList(),
+            SecondTab(),
+          ],
+        ));
   }
 }

@@ -11,36 +11,52 @@ class BillDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      child: ListTile(
-        leading: Container(
-          width: 40,
-          height: 40,
-          decoration: BoxDecoration(
-              image: DecorationImage(
-            image: AssetImage(billImage),
-            fit: BoxFit.fill,
-          )),
+    return Container(
+        margin: EdgeInsets.only(
+          top: 20,
+          right: 5,
+          left: 5,
         ),
-        title: Text(
-          billName,
-          style: TextStyle(
-            fontFamily: 'Calibri',
-            fontSize: 16,
-            color: Colors.black,
+        width: 378,
+        height: 93,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
           ),
+          borderRadius: BorderRadius.circular(5),
         ),
-        subtitle: Text(
-          billDate,
-          style: TextStyle(
-            fontFamily: 'Calibri',
-            fontSize: 12,
-            color: Colors.black,
+        child: ListTile(
+          leading: CircleAvatar(
+            backgroundImage: AssetImage(billImage),
+            backgroundColor: Colors.white,
           ),
-        ),
-        trailing: PayButton(),
-      ),
-    );
+          title: Text(
+            billName,
+            style: TextStyle(
+              fontFamily: 'Calibri',
+              fontSize: 16,
+              color: Colors.black,
+            ),
+          ),
+          subtitle: Text(
+            billDate,
+            style: TextStyle(
+              fontFamily: 'Calibri',
+              fontSize: 12,
+              color: Colors.black,
+            ),
+          ),
+          trailing: RaisedButton(
+            color: raisedButtonColor,
+            onPressed: () {},
+            child: Text(
+              "دفع",
+              style: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ));
   }
 }
 
@@ -87,15 +103,11 @@ class PayBillsList extends StatelessWidget {
 }
 
 class PayButton extends StatelessWidget {
-  const PayButton({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return ButtonTheme(
-      minWidth: 80,
-      height: 40,
+      minWidth: 20,
+      height: 20,
       child: RaisedButton(
         onPressed: () {},
         color: raisedButtonColor,

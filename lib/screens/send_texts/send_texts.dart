@@ -3,8 +3,10 @@ import '../../constans/constants.dart';
 import '../../custom_widgets/custom_widgets.dart';
 import '../charge_balance.dart';
 import 'send_texts_contacts.dart';
+import 'package:flutter_tags/flutter_tags.dart';
 
 class SendText extends StatefulWidget {
+  final List<String> _list = ['محمد عودة', 'اية محمد'];
   @override
   _SendTextState createState() => _SendTextState();
 }
@@ -30,25 +32,6 @@ class _SendTextState extends State<SendText> {
       ),
       body: Column(
         children: [
-          // SizedBox(
-          //   height: 42,
-          // ),
-          // Container(
-          //   //Send text top text
-          //   height: 97,
-          //   width: 414,
-          //   child: Center(
-          //     child: Text(
-          //       'إرسال رسالة',
-          //       style: TextStyle(
-          //         fontFamily: 'Calibri',
-          //         fontSize: 24,
-          //         color: leaderLogo,
-          //       ),
-          //     ),
-          //   ),
-          // ),
-
           GestureDetector(
             onTap: () => Navigator.push(
               context,
@@ -74,6 +57,7 @@ class _SendTextState extends State<SendText> {
               child: Column(
                 children: [
                   //Reciever textfield
+
                   DefaultTextFormField(
                     labelText: 'المستقبل',
                     fontFamily: 'Calibri',
