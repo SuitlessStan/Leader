@@ -17,6 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextFieldController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       // appBar: AppBar(),
       body: SingleChildScrollView(
@@ -31,8 +32,8 @@ class _LoginScreenState extends State<LoginScreen> {
             children: [
               Container(
                   //Blue circle with L in center
-                  height: 160,
-                  width: 160,
+                  height: SizeConfig.blockSizeVertical * 80,
+                  width: SizeConfig.blockSizeHorizontal * 40,
                   decoration: BoxDecoration(
                     color: logoColor,
                     shape: BoxShape.circle,

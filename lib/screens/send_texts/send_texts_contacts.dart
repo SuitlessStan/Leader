@@ -14,10 +14,13 @@ class ColumnContact extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        CircleAvatar(
-          radius: 30,
-          backgroundImage: AssetImage(contactProfilePicture),
-          backgroundColor: Colors.white,
+        GestureDetector(
+          onTap: () {},
+          child: CircleAvatar(
+            radius: 30,
+            backgroundImage: AssetImage(contactProfilePicture),
+            backgroundColor: Colors.white,
+          ),
         ),
         Container(
           margin: EdgeInsets.only(
@@ -82,8 +85,8 @@ class ColumnContactNamesList extends StatelessWidget {
       phoneNumber: '0599947045',
     ),
     ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
       phoneNumber: '0599947045',
     ),
     ColumnContact(
@@ -92,8 +95,8 @@ class ColumnContactNamesList extends StatelessWidget {
       phoneNumber: '0599947045',
     ),
     ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
+      contactName: 'آية محمد',
+      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
       phoneNumber: '0599947045',
     ),
     ColumnContact(
@@ -102,38 +105,8 @@ class ColumnContactNamesList extends StatelessWidget {
       phoneNumber: '0599947045',
     ),
     ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
       contactName: 'آية محمد',
       contactProfilePicture: 'assets/images/Aya_Mohammad.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
-      contactName: 'آية محمد',
-      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
-      contactName: 'آية محمد',
-      contactProfilePicture: 'assets/images/Aya_Mohammad.png',
-      phoneNumber: '0599947045',
-    ),
-    ColumnContact(
-      contactName: 'محمد عودة',
-      contactProfilePicture: 'assets/images/Mohammad_Ouda.png',
       phoneNumber: '0599947045',
     ),
   ];

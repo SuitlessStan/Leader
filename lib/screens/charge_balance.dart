@@ -242,10 +242,13 @@ class Contact extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        CircleAvatar(
-          radius: 30,
-          backgroundImage: AssetImage(contactProfilePicture),
-          backgroundColor: Colors.white,
+        GestureDetector(
+          onDoubleTap: () {},
+          child: CircleAvatar(
+            radius: 30,
+            backgroundImage: AssetImage(contactProfilePicture),
+            backgroundColor: Colors.white,
+          ),
         ),
         Center(child: Text(contactName)),
       ],

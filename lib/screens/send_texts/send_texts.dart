@@ -36,7 +36,7 @@ class _SendTextState extends State<SendText> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => ContactNames(),
+                builder: (context) => ColumnContactNamesList(),
               ),
             ),
             child: ContactsNamesList(),
